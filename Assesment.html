@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assesment</title>
+    <style>
+        #question{
+            background-color: gold; border: solid;border-radius: 15px;width: 50%;height: 10vh;
+        }
+        #option1{
+            background-color: purple; border-radius: 10px;border: solid;width: 40%;height: 10vh;
+        }
+        #option2{
+            background-color: purple; border-radius: 10px;border: solid;width: 40%;height: 10vh;
+        }
+        #option3{
+            background-color: purple; border-radius: 10px;border: solid;width: 40%;height: 10vh;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>NBA Quiz</h1>
+    <img src="https://a57.foxsports.com/statics.foxsports.com/www.foxsports.com/content/uploads/2022/06/1408/814/06.21.2022_Colins-top-important-NBA-players_16x9.jpg?ve=1&tl=1" height="350px">
+   <p id="scoreboard">Score</p>
+    <br> <br>
+    <div id="question"></div><br>
+    <div onclick="checkAnswers(this)" id="option1"></div><br>
+    <div onclick="checkAnswers(this)" id="option2"></div><br>
+    <div onclick="checkAnswers(this)" id="option3"></div><br>
+    <button onclick="changeQuestion()">Next Question</button>
+    </center>
+    <script>
+        let score=0
+        mcq=[
+            question1={
+                que:"What Nba Franchise Has The Most Championships?",
+                opt1:"Celtics",
+                opt2:"Lakers",
+                opt3:"Warriors",
+                cop:"Celtics",
+            },
+            question2={
+                que:"Which Nba Player has the most points scored ever?",
+                opt1:"LeBron James",
+                opt2:"Michael Jordan",
+                opt3:"Kareem Abdul-Jabbar",
+                cop:"Kareem Abdul-Jabbar",                
+            },
+            question3={
+                que:"Who is the player that has the most points scored in a single game?",
+                opt1:"Wilt Chamberlin",
+                opt2:"Tony Snell",
+                opt3:"Kobe Bryant",
+                cop:"Wilt Chamberlin",
+            },
+        ]
+            let i=0
+            document.getElementById("question").innerText=mcq[i].que,
+            document.getElementById("option1").innerText=mcq[i].opt1
+            document.getElementById("option2").innerText=mcq[i].opt2
+            document.getElementById("option3").innerText=mcq[i].opt3
+            function changeQuestion(){
+                i=i+1
+                document.getElementById("option1").style.backgroundColor="purple"
+                document.getElementById("option2").style.backgroundColor="purple"
+                document.getElementById("option3").style.backgroundColor="purple"
+                document.getElementById("question").innerText=mcq[i].que
+                document.getElementById("option1").innerText=mcq[i].opt1
+                document.getElementById("option2").innerText=mcq[i].opt2
+                document.getElementById("option3").innerText=mcq[i].opt3            
+            }
+            function checkAnswers(clickedOption){
+                if(clickedOption.innerText==mcq[i].cop){
+                    clickedOption.style.backgroundColor="green"
+                    score=score+1
+                    document.getElementById("scoreboard").innerText=score
+                }
+                else{
+                    clickedOption.style.backgroundColor="red"
+                }
+            }
+            
+        
+    </script>
+</body>
+</html>
